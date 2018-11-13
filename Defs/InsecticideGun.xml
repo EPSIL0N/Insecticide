@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BaseWeaponNeolithic">
+        <defName>InsecticideGun</defName>
+        <label>Insecticide Gun</label>
+        <description>Bug killing gun</description>
+        <graphicData>
+            <texPath>Things/Projectile/InfernoCannonShot</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <color>(34, 185, 187, 180)</color>
+        </graphicData>
+        <soundInteract>Interact_BeatFire</soundInteract>
+        <costList>
+            <Steel>30</Steel>
+            <Insecticide>1</Insecticide>
+        </costList>
+        <generateCommonality>0</generateCommonality>
+        <generateAllowChance>0</generateAllowChance>
+        <statBases>
+            <WorkToMake>700</WorkToMake>
+            <Mass>0.8</Mass>
+            <AccuracyTouch>1</AccuracyTouch>
+            <AccuracyShort>1</AccuracyShort>
+            <AccuracyMedium>1</AccuracyMedium>
+            <AccuracyLong>1</AccuracyLong>
+            <RangedWeapon_Cooldown>0.25</RangedWeapon_Cooldown>
+        </statBases>
+        <weaponTags>
+            <li>NeolithicRangedBasic</li>
+        </weaponTags>
+        <recipeMaker>
+            <recipeUsers>
+                <li>CraftingSpot</li>
+            </recipeUsers>
+            <skillRequirements>
+                <Crafting>2</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Insecticide_Arrow</defaultProjectile>
+                <warmupTime>1.35</warmupTime>
+                <range>22.9</range>
+                <soundCast>Bow_Small</soundCast>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>goo</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>1</power>
+                <cooldownTime>1</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BaseProjectileNeolithic">
+        <defName>Insecticide_Arrow</defName>
+        <label>Insecticide</label>
+        <graphicData>
+            <texPath>Things/Projectile/InfernoCannonShot</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <color>(34, 185, 187, 180)</color>
+        </graphicData>
+        <projectile>
+            <flyOverhead>false</flyOverhead>
+            <damageDef>Insecticide</damageDef>
+            <damageAmountBase>1</damageAmountBase>
+            <speed>44</speed>
+        </projectile>
+    </ThingDef>
+
+    <DamageDef>
+        <defName>Insecticide</defName>
+        <label>Insecticide</label>
+        <workerClass>Insecticide.DamageWorker_AddBugInjury</workerClass>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has been killed by insecticide.</deathMessage>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <armorCategory>Blunt</armorCategory>
+        <minDamageToFragment>5</minDamageToFragment>
+        <defaultDamage>1</defaultDamage>
+        <defaultArmorPenetration>10</defaultArmorPenetration>
+        <explosionHeatEnergyPerCell>-1</explosionHeatEnergyPerCell>
+        <explosionCellMote>Mote_BlastFlame</explosionCellMote>
+        <explosionColorCenter>(.2, 0.9, 0.4)</explosionColorCenter>
+        <explosionColorEdge>(.2, 1, 0.7)</explosionColorEdge>
+        <hediff>ToxicBuildup</hediff>
+        <hediffSolid>ToxicBuildup</hediffSolid>
+        <hediffSkin>ToxicBuildup</hediffSkin>
+        <additionalHediffs>
+            <li>
+                <hediff>ToxicBuildup</hediff>
+                <severityPerDamageDealt>0.1</severityPerDamageDealt>
+            </li>
+        </additionalHediffs>
+    </DamageDef>
+</Defs>

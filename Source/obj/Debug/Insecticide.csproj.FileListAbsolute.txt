@@ -1,0 +1,4 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Insecticide\Assemblies\Insecticide.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Insecticide\Source\obj\Debug\Insecticide.csprojAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Insecticide\Source\obj\Debug\Insecticide.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Insecticide\Source\obj\Debug\Insecticide.dll

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="ResourceBase">
+        <defName>Insecticide</defName>
+        <label>Insecticide</label>
+        <description>A volatile liquid chemical. Used to kill incests. Toxic, Keep out of reach of children and oafs. Remove stomach if ingested.</description>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>Things/Item/Resource/Chemfuel</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <color>(34, 185, 187, 180)</color>
+            <drawSize>0.60</drawSize>
+        </graphicData>
+        <stackLimit>1500</stackLimit>
+        <statBases>
+            <MaxHitPoints>50</MaxHitPoints>
+            <MarketValue>2.3</MarketValue>
+            <Mass>0.01</Mass>
+            <Flammability>2.0</Flammability>
+            <DeteriorationRate>0.1</DeteriorationRate>
+        </statBases>
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>1.1</explosiveRadius>
+                <explosiveDamageType>Insecticide</explosiveDamageType>
+                <explosiveExpandPerStackcount>0.017</explosiveExpandPerStackcount>
+                <startWickOnDamageTaken>Flame</startWickOnDamageTaken>
+                <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+                <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+                <preExplosionSpawnChance>1</preExplosionSpawnChance>
+                <wickTicks>
+                    <min>70</min>
+                    <max>150</max>
+                </wickTicks>
+            </li>
+        </comps>
+
+        <costList>
+            <Neutroamine>1</Neutroamine>
+            <PsychoidLeaves>4</PsychoidLeaves>
+            <Chemfuel>2</Chemfuel>
+        </costList>
+
+        <recipeMaker>
+            <recipeUsers>
+                <li>CraftingSpot</li>
+                <li>DrugLab</li>
+            </recipeUsers>
+            <skillRequirements>
+                <Crafting>2</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+    </ThingDef>
+
+
+
+    <ThingDef ParentName="BaseFilth">
+        <defName>Filth_Insecticide</defName>
+        <label>Insecticide</label>
+        <statBases>
+            <Cleanliness>-15</Cleanliness>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Filth/PoolSoft</texPath>
+            <color>(34, 185, 187, 180)</color>
+        </graphicData>
+        <filth>
+            <rainWashes>true</rainWashes>
+            <cleaningWorkToReduceThickness>20</cleaningWorkToReduceThickness>
+            <canFilthAttach>true</canFilthAttach>
+        </filth>
+    </ThingDef>
+</Defs>

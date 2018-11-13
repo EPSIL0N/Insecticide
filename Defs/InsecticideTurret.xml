@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BuildingBase">
+        <defName>Turret_MiniTurret_Insecticide</defName>
+        <label>insecticide mini-turret</label>
+        <description>A portable automatic turret filled with Insecticide. Requires Insecticide to refuel. May explode Insecticide when damaged. Its dumb AI brain can't be directly controlled, so beware of friendly fire.</description>
+        <thingClass>Building_TurretGun</thingClass>
+        <graphicData>
+            <texPath>Things/Building/Security/TurretMini_Base</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+            <damageData>
+                <rect>(0.2,0.2,0.6,0.6)</rect>
+            </damageData>
+            <shadowData>
+                <volume>(0.27,0.25,0.27)</volume>
+                <offset>(0,0,0)</offset>
+            </shadowData>
+            <color>(34, 185, 187, 180)</color>
+        </graphicData>
+        <uiIconPath>Things/Building/Security/TurretMini_MenuIcon</uiIconPath>
+        <uiIconScale>0.90</uiIconScale>
+        <uiIconColor>(39,185,187)</uiIconColor>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Flammability>0.1</Flammability>
+            <WorkToBuild>3500</WorkToBuild>
+            <Mass>10</Mass>
+            <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>3.9</explosiveRadius>
+                <explosiveDamageType>Insecticide</explosiveDamageType>
+                <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+            </li>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>20</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Shots until barrel change</fuelLabel>
+                <fuelGizmoLabel>Barrel durability</fuelGizmoLabel>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Insecticide</li>
+                    </thingDefs>
+                </fuelFilter>
+                <fuelCapacity>120</fuelCapacity>
+                <initialFuelPercent>1</initialFuelPercent>
+                <autoRefuelPercent>0.75</autoRefuelPercent>
+                <showFuelGizmo>true</showFuelGizmo>
+                <minimumFueledThreshold>1</minimumFueledThreshold>
+                <fuelMultiplier>10</fuelMultiplier>
+                <factorByDifficulty>true</factorByDifficulty>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <outOfFuelMessage>Cannot shoot: Needs Insecticide</outOfFuelMessage>
+                <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+            </li>
+        </comps>
+        <passability>PassThroughOnly</passability>
+        <pathCost>5</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <hasTooltip>true</hasTooltip>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <costStuffCount>60</costStuffCount>
+        <costList>
+            <Insecticide>1</Insecticide>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <designationCategory>Security</designationCategory>
+        <specialDisplayRadius>24.9</specialDisplayRadius>
+        <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretGunDef>InsecticideGun</turretGunDef>
+            <turretBurstCooldownTime>4.8</turretBurstCooldownTime>
+            <turretTopGraphicPath>Things/Building/Security/TurretMini_Top</turretTopGraphicPath>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+        <designationHotKey>Misc2</designationHotKey>
+        <researchPrerequisites>
+            <li>GunTurrets</li>
+        </researchPrerequisites>
+    </ThingDef>
+</Defs>
